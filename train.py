@@ -39,6 +39,7 @@ def parse_args():
                         help='experiment configure file name',
                         required=True,
                         type=str)
+                        
 
     args, rest = parser.parse_known_args()
     # update config
@@ -58,8 +59,6 @@ def reset_config(config, args):
     if args.gpus:
         config.GPUS = args.gpus
 
-    #if args.genotype:
-    #    config.TRAIN.GENOTYPE = args.genotype
 
 def main():
 
@@ -94,30 +93,6 @@ def main():
     
     logger.info("Logger is set - training start")
 
-'''
-## load ImageNet pretrained model
-    pretrained_path = 'pretrained_18l_64c_epcho250/best.pth.tar'
-    pretrained_model = torch.load(pretrained_path)
-    
-    pretrained_dict = pretrained_model['state_dict']
-    model_dict = model.state_dict()
-    pretrained_dict={ k : v for k, v in pretrained_dict.items() if k in model_dict}
-    model_dict.update(pretrained_dict)
-    model.load_state_dict(model_dict)
-    logger.info("=>Num of params loaded: {}".format(len(pretrained_dict)))
-    logger.info("=> loaded pretrained model '{}' ".format(pretrained_path))    
-
-##load refine
-    pretrained_path = '/home/hongjun/pretrained_model/12layer_32channel/12c32l_refine.pth.tar'
-    pretrained_model = torch.load(pretrained_path)
-    pretrained_dict = pretrained_model
-    model_dict = model.state_dict()
-    pretrained_dict={ k : v for k, v in pretrained_dict.items() if k in model_dict}
-    model_dict.update(pretrained_dict)
-    model.load_state_dict(model_dict)
-    logger.info("=>Num of params loaded: {}".format(len(pretrained_dict)))
-    logger.info("=> loaded pretrained model '{}' ".format(pretrained_path))
-'''
 
     # weights optimizer
     optimizer = torch.optim.Adam(model.parameters(), config.TRAIN.LR)
