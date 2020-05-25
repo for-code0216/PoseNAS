@@ -1,9 +1,7 @@
-# All-Searchable: Full Neural Architecture Search for Human Pose Estimation
+# Pose-native Neural Architecture Search for Multi-person Pose Estimation
 
 ## Introduction
-This is an official pytorch implementation of [*Deep High-Resolution Representation Learning for Human Pose Estimation*](https://arxiv.org/abs/1902.09212). 
-In this work, we are interested in the human pose estimation problem with a focus on learning reliable high-resolution representations. Most existing methods **recover high-resolution representations from low-resolution representations** produced by a high-to-low resolution network. Instead, our proposed network **maintains high-resolution representations** through the whole process.
-We start from a high-resolution subnetwork as the first stage, gradually add high-to-low resolution subnetworks one by one to form more stages, and connect the mutli-resolution subnetworks **in parallel**. We conduct **repeated multi-scale fusions** such that each of the high-to-low resolution representations receives information from other parallel representations over and over, leading to rich high-resolution representations. As a result, the predicted keypoint heatmap is potentially more accurate and spatially more precise. We empirically demonstrate the effectiveness of our network through the superior pose estimation results over two benchmark datasets: the COCO keypoint detection dataset and the MPII Human Pose dataset. </br>
+This is an official pytorch implementation of Pose-native Neural Architecture Search for Multi-person Pose Estimation.
 
 ## Architecture Description
 In this work, we only support three different structures(AutoPose-L12-C32,AutoPose-L18-C48,AutoPose-L18-C64), 'L' and 'C' stand for the number of the cells and the number of the initial channels of
