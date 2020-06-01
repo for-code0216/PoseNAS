@@ -1,19 +1,20 @@
 # Pose-native Neural Architecture Search for Multi-person Pose Estimation
 
 ## Introduction
-This is an official pytorch implementation of Pose-native Neural Architecture Search for Multi-person Pose Estimation.
+This is an official pytorch implementation of Pose-native Neural Architecture Search for Multi-person Pose Estimation. Our work focuses on the Neural Architecture Search (NAS) for human pose estimation. Most of the existing human pose estimation networks are equipped with an image classification-based pose encoder for feature extraction and a handcrafted pose decoder for high-resolution representations. However, the pose encoder might be sub-optimal because of the gap between image classification and pose estimation. The widely used multi-scale feature fusion in pose decoder is still coarse and cannot provide sufficient high-resolution details for hard keypoints. In this work, we present the Pose-native Network Architecture Search (PoseNAS) to simultaneously design a better pose encoder and pose decoder for pose estimation. Specifically, we directly search a data-oriented pose encoder with stacked searchable cells, which can provide an optimum feature extractor for the pose specific task. In the pose decoder, we exploit scale-adaptive fusion cells to promote rich information exchange across the multi-scale feature maps. Meanwhile, the pose decoder adopts a Fusion-and-Enhancement manner to progressively boost the high-resolution representations that are non-trivial for the precious prediction of hard keypoints.
+With the exquisitely designed search space and search strategy, PoseNAS can simultaneously search all modules in an end-to-end manner. Our best model obtains $76.7\%$ mAP and  $75.9\%$ mAP on the COCO validation set and test set with only $33.6$M parameters. 
+
 
 ## Architecture Description
-In this work, we only support three different structures(AutoPose-L12-C32,AutoPose-L18-C48,AutoPose-L18-C64), 'L' and 'C' stand for the number of the cells and the number of the initial channels of
-the backbone 
+In this work, we support two different structures (PoseNAS-L18-C48 and PoseNAS-L18-C64), 'L' and 'C' stand for the number of the cells and the number of the initial channels of the pose encoder. 
 
 ## Main Results
 ### Results on MPII val
 | Arch               | Head | Shoulder | Elbow | Wrist |  Hip | Knee | Ankle | Mean | Mean@0.1 |
 |--------------------|------|----------|-------|-------|------|------|-------|------|----------|
-| AutoPose-L12-C32   | 96.0 |     94.4 |  86.1 |  80.3 | 87.2 | 81.2 |  77.0 | 86.7 |     30.3 |
-| AutoPose-L18-C48   | 96.6 |     95.9 |  89.4 |  84.2 | 88.7 | 85.6 |  80.9 | 89.3 |     34.9 |
-| AutoPose-L18-C64   | 96.7 |     95.7 |  89.6 |  84.5 | 89.2 | 85.9 |  81.3 | 89.5 |     35.2 |
+| PoseNAS-L12-C32   | 96.0 |     94.4 |  86.1 |  80.3 | 87.2 | 81.2 |  77.0 | 86.7 |     30.3 |
+| PoseNAS-L18-C48   | 96.6 |     95.9 |  89.4 |  84.2 | 88.7 | 85.6 |  80.9 | 89.3 |     34.9 |
+| PoseNAS-L18-C64   | 96.7 |     95.7 |  89.6 |  84.5 | 89.2 | 85.9 |  81.3 | 89.5 |     35.2 |
 
 
 ### Note:
@@ -23,12 +24,12 @@ the backbone
 ### Results on COCO val2017 with detector having human AP of 56.4 on COCO val2017 dataset
 | Arch               | Input size | #Params | GFLOPs |    AP | Ap .5 | AP .75 | AP (M) | AP (L) |    AR | AR .5 | AR .75 | AR (M) | AR (L) |
 |--------------------|------------|---------|--------|-------|-------|--------|--------|--------|-------|-------|--------|--------|--------|
-| AutoPose-L12-C32   |    256x192 | 5.25M   |   0.99 | 0.673 | 0.880 | 0.752  | 0.643  | 0.735  | 0.734 | 0.921 | 0.806  | 0.695  | 0.790  |
-| AutoPose-L12-C32   |    384x288 | 5.25M   |   2.22 | 0.711 | 0.888 | 0.786  | 0.675  | 0.779  | 0.765 | 0.928 | 0.833  | 0.722  | 0.828  |
-| AutoPose-L18-C48   |    256x192 | 15.0M   |   3.00 | 0.716 | 0.892 | 0.796  | 0.683  | 0.780  | 0.772 | 0.932 | 0.844  | 0.733  | 0.829  |
-| AutoPose-L18-C48   |    384x288 | 15.0M   |   5.33 | 0.742 | 0.899 | 0.812  | 0.704  | 0.812  | 0.794 | 0.937 | 0.856  | 0.751  | 0.856  |
-| AutoPose-L18-C64   |    256x192 | 26.6M   |   6.75 | 0.728 | 0.896 | 0.806  | 0.694  | 0.792  | 0.783 | 0.935 | 0.851  | 0.742  | 0.840  |
-| AutoPose-L18-C64   |    384x288 | 26.6M   |   12.0 | 0.753 | 0.906 | 0.820  | 0.716  | 0.821  | 0.803 | 0.942 | 0.863  | 0.760  | 0.866  |
+| PoseNAS-L12-C32   |    256x192 | 5.25M   |   0.99 | 0.673 | 0.880 | 0.752  | 0.643  | 0.735  | 0.734 | 0.921 | 0.806  | 0.695  | 0.790  |
+| PoseNAS-L12-C32   |    384x288 | 5.25M   |   2.22 | 0.711 | 0.888 | 0.786  | 0.675  | 0.779  | 0.765 | 0.928 | 0.833  | 0.722  | 0.828  |
+| PoseNAS-L18-C48   |    256x192 | 15.0M   |   3.00 | 0.716 | 0.892 | 0.796  | 0.683  | 0.780  | 0.772 | 0.932 | 0.844  | 0.733  | 0.829  |
+| PoseNAS-L18-C48   |    384x288 | 15.0M   |   5.33 | 0.742 | 0.899 | 0.812  | 0.704  | 0.812  | 0.794 | 0.937 | 0.856  | 0.751  | 0.856  |
+| PoseNAS-L18-C64   |    256x192 | 26.6M   |   6.75 | 0.728 | 0.896 | 0.806  | 0.694  | 0.792  | 0.783 | 0.935 | 0.851  | 0.742  | 0.840  |
+| PoseNAS-L18-C64   |    384x288 | 26.6M   |   12.0 | 0.753 | 0.906 | 0.820  | 0.716  | 0.821  | 0.803 | 0.942 | 0.863  | 0.760  | 0.866  |
 
 
 ### Note:
@@ -40,9 +41,9 @@ the backbone
 ### Results on COCO test-dev2017 with detector having human AP of 60.9 on COCO test-dev2017 dataset
 | Arch               | Input size | #Params | GFLOPs |    AP | Ap .5 | AP .75 | AP (M) | AP (L) |    AR | AR .5 | AR .75 | AR (M) | AR (L) |
 |--------------------|------------|---------|--------|-------|-------|--------|--------|--------|-------|-------|--------|--------|--------|
-| AutoPose-L12-C32   |    384x288 | 5.25M   |   2.22 | 0.703 | 0.910 |  0.781 |  0.669 |  0.762 | 0.758 | 0.944 |  0.829 |  0.716 |  0.816 |
-| AutoPose-L18-C48   |    384x288 | 15.0M   |   5.33 | 0.734 | 0.921 |  0.813 |  0.699 |  0.793 | 0.786 | 0.952 |  0.856 |  0.744 |  0.843 |
-| AutoPose-L18-C64   |    384x288 | 26.6M   |   12.0 | 0.744 | 0.923 |  0.824 |  0.709 |  0.803 | 0.795 | 0.955 |  0.867 |  0.755 |  0.851 |
+| PoseNAS-L12-C32   |    384x288 | 5.25M   |   2.22 | 0.703 | 0.910 |  0.781 |  0.669 |  0.762 | 0.758 | 0.944 |  0.829 |  0.716 |  0.816 |
+| PoseNAS-L18-C48   |    384x288 | 15.0M   |   5.33 | 0.734 | 0.921 |  0.813 |  0.699 |  0.793 | 0.786 | 0.952 |  0.856 |  0.744 |  0.843 |
+| PoseNAS-L18-C64   |    384x288 | 26.6M   |   12.0 | 0.744 | 0.923 |  0.824 |  0.709 |  0.803 | 0.795 | 0.955 |  0.867 |  0.755 |  0.851 |
 
 ### Note:
 - Flip test is used.
@@ -156,3 +157,4 @@ python train.py --cfg experiments/mpii/256x256_d256x3_adam_lr1e-3.yaml
 ```
 python train.py --cfg experiments/coco/256x192_d256x3_adam_lr1e-3.yaml
 ```
+
