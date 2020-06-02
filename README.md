@@ -139,7 +139,7 @@ ${POSE_ROOT}
 
 #### Testing on COCO val2017 dataset
 
-##### Testing on COCO dataset  using  our [pretrained model](https://drive.google.com/drive/).
+##### Testing on COCO dataset  using  our [pretrained model](https:).
 
 ```
 python test.py --cfg experiments/coco/256x192_18l_64c.yaml --test_weight "path/to/your/weight"
@@ -155,7 +155,7 @@ python train.py --cfg experiments/coco/256x192_18l_64c.yaml
 
 #### Testing on MPII dataset
 
-##### Testing on MPII dataset  using  our [pretrained model](https://drive.google.com/drive/).
+##### Testing on MPII dataset  using  our [pretrained model](https:).
 
 ```
 python test.py --cfg experiments/mpii/256x256_18l_64c.yaml --test_weight "path/to/your/weight"
