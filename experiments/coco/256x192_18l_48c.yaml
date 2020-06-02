@@ -25,7 +25,6 @@ MODEL:
   HEATMAP_SIZE:
   - 48
   - 64
-  FINAL_CONV_KERNEL: 1
   
 LOSS:
   USE_TARGET_WEIGHT: true
@@ -35,8 +34,8 @@ SEARCH:
   MOMENTUM: 0.9
   WEIGHT_DECAY: 0.0001
   NESTEROV: false
-  INIT_EPOCHS: 20
-  EPOCHS: 60
+  INIT_EPOCHS: 10
+  EPOCHS: 40
   BATCH_SIZE: 32
   LAYERS: 12
   INIT_CHANNELS: 32
@@ -45,7 +44,7 @@ SEARCH:
   SEED: 2
   LR_STEP:
   - 20
-  - 40
+  - 30
   LR_FACTOR: 0.2
   TRAIN_SET: 'train2017'
   TEST_SET: 'val2017'
@@ -76,7 +75,7 @@ TRAIN:
 TEST:
 
   BATCH_SIZE: 32
-  COCO_BBOX_FILE: 'data/coco/person_detection_results/COCO_val2017_detections_AP_H_56_person.json'
+  COCO_BBOX_FILE: 'data/coco/person_detection_results/COCO_val2017_detections_bbox.json'
   BBOX_THRE: 1.0
   FLIP_TEST: true
   IMAGE_THRE: 0.0
