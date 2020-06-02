@@ -33,7 +33,7 @@ In this project, we support two different structures, PoseNAS-L18-C48 and PoseNA
 | PoseNAS-L18-C64 | 384x288    | 33.6M   | 14.8   | 0.759 | 0.930 | 0.838  | 0.722  | 0.814  | 0.807 | 0.958 | 0.876  | 0.767  | 0.861  |
 
 - Flip test is used.
-- Person detector is available at[detected_bbox](https://).
+- Person detector is available at [detected_bbox](https://).
 - GFLOPs is for convolution and linear layers only.
 
 
@@ -139,7 +139,7 @@ ${POSE_ROOT}
 
 #### Testing on COCO val2017 dataset
 
-##### Testing on COCO dataset  using  our [pretrained model](https://drive.google.com/drive/folders/1Ydy7JXn1AAvx7av2Sc2CMl7ijJrOIWxW?usp=sharing).
+##### Testing on COCO dataset  using  our [pretrained model](https://drive.google.com/drive/).
 
 ```
 python test.py --cfg experiments/coco/256x192_18l_64c.yaml --test_weight "path/to/your/weight"
@@ -155,7 +155,7 @@ python train.py --cfg experiments/coco/256x192_18l_64c.yaml
 
 #### Testing on MPII dataset
 
-##### Testing on MPII dataset  using  our [pretrained model](https://drive.google.com/drive/folders/1Ydy7JXn1AAvx7av2Sc2CMl7ijJrOIWxW?usp=sharing).
+##### Testing on MPII dataset  using  our [pretrained model](https://drive.google.com/drive/).
 
 ```
 python test.py --cfg experiments/mpii/256x256_18l_64c.yaml --test_weight "path/to/your/weight"
