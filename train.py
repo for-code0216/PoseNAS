@@ -75,7 +75,7 @@ def main():
     torch.backends.cudnn.enabled = config.CUDNN.ENABLED
     torch.backends.cudnn.benchmark = True
     
-    model = Network(config, gt.DARTS)
+    model = Network(config, gt.PoseDecoder)
     model.init_weights()
     
     writer_dict = {
