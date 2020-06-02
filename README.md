@@ -1,20 +1,20 @@
 # Pose-native Neural Architecture Search for Multi-person Pose Estimation
 
 ## Introduction
-This is an official pytorch implementation of Pose-native Neural Architecture Search for Multi-person Pose Estimation. Our work focuses on the Neural Architecture Search (NAS) for human pose estimation. Most of the existing human pose estimation networks are equipped with an image classification-based pose encoder for feature extraction and a handcrafted pose decoder for high-resolution representations. However, the pose encoder might be sub-optimal because of the gap between image classification and pose estimation. The widely used multi-scale feature fusion in pose decoder is still coarse and cannot provide sufficient high-resolution details for hard keypoints. In this work, we present the Pose-native Network Architecture Search (PoseNAS) to simultaneously design a better pose encoder and pose decoder for pose estimation. Specifically, we directly search a data-oriented pose encoder with stacked searchable cells, which can provide an optimum feature extractor for the pose specific task. In the pose decoder, we exploit scale-adaptive fusion cells to promote rich information exchange across the multi-scale feature maps. Meanwhile, the pose decoder adopts a Fusion-and-Enhancement manner to progressively boost the high-resolution representations that are non-trivial for the precious prediction of hard keypoints.
-With the exquisitely designed search space and search strategy, PoseNAS can simultaneously search all modules in an end-to-end manner. Our best model obtains $76.7\%$ mAP and  $75.9\%$ mAP on the COCO validation set and test set with only $33.6$M parameters. 
+This is an official pytorch implementation of Pose-native Neural Architecture Search for Multi-person Pose Estimation. 
+
+In this work, we present the Pose-native Network Architecture Search (PoseNAS) to simultaneously design a pose encoder and pose decoder for pose estimation. Specifically, we directly search a data-oriented pose encoder with stacked searchable cells, which can provide an optimum feature extractor for the pose specific task. In the pose decoder, we exploit scale-adaptive fusion cells to promote rich information exchange across the multi-scale feature maps. Meanwhile, the pose decoder adopts a Fusion-and-Enhancement manner to progressively boost the high-resolution representations that are non-trivial for the precious prediction of hard keypoints. With the exquisitely designed search space and search strategy, PoseNAS can simultaneously search all modules in an end-to-end manner. Our best model obtains $76.7\%$ mAP and  $75.9\%$ mAP on the COCO validation set and test set with only $33.6$M parameters. 
 
 
 ## Architecture Description
-In this work, we support two different structures (PoseNAS-L18-C48 and PoseNAS-L18-C64), 'L' and 'C' stand for the number of the cells and the number of the initial channels of the pose encoder. 
+In this work, we support two different structures (PoseNAS-L18-C48 and PoseNAS-L18-C64), 'L' and 'C' stand for the number of  cells in the pose encoder and the number of the initial channels of the pose encoder, respectively. 
 
 ## Main Results
 ### Results on MPII val
-| Arch               | Head | Shoulder | Elbow | Wrist |  Hip | Knee | Ankle | Mean | Mean@0.1 |
-|--------------------|------|----------|-------|-------|------|------|-------|------|----------|
-| PoseNAS-L12-C32   | 96.0 |     94.4 |  86.1 |  80.3 | 87.2 | 81.2 |  77.0 | 86.7 |     30.3 |
-| PoseNAS-L18-C48   | 96.6 |     95.9 |  89.4 |  84.2 | 88.7 | 85.6 |  80.9 | 89.3 |     34.9 |
-| PoseNAS-L18-C64   | 96.7 |     95.7 |  89.6 |  84.5 | 89.2 | 85.9 |  81.3 | 89.5 |     35.2 |
+| Arch               | Head | Shoulder | Elbow | Wrist |  Hip | Knee | Ankle | Mean |
+|--------------------|------|----------|-------|-------|------|------|-------|------|
+
+| PoseNAS-L18-C64   | 97.2 |     96.3 |  90.6 |  86.0 | 90.0 | 86.5 |  83.0 | 90.4 | 
 
 
 ### Note:
