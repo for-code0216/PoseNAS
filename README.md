@@ -1,5 +1,3 @@
-# Pose-native Neural Architecture Search for Multi-person Pose Estimation
-
 ## Introduction
 This is the pytorch implementation of <u>Pose-native Neural Architecture Search for Multi-person Pose Estimation</u>. 
 
