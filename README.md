@@ -1,6 +1,6 @@
-## Introduction
-This is the pytorch implementation of <u>Pose-native Neural Architecture Search for Multi-person Pose Estimation</u>. 
+# Pose-native Neural Architecture Search for Multi-person Pose Estimation
 
+## Introduction
 In this work, we present the Pose-native Network Architecture Search (PoseNAS) to simultaneously design a pose encoder and pose decoder for pose estimation. Specifically, we directly search a data-oriented pose encoder with stacked searchable cells, which can provide an optimum feature extractor for the pose specific task. In the pose decoder, we exploit scale-adaptive fusion cells to promote rich information exchange across the multi-scale feature maps. Meanwhile, the pose decoder adopts a Fusion-and-Enhancement manner to progressively boost the high-resolution representations that are non-trivial for the precious prediction of hard keypoints. With the exquisitely designed search space and search strategy, PoseNAS can simultaneously search all modules in an end-to-end manner. Our best model obtains $76.7\%$ mAP and  $75.9\%$ mAP on the COCO validation set and test set with only $33.6$M parameters. 
 
 ## Architecture Description
