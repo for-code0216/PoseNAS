@@ -151,7 +151,6 @@ class Network(nn.Module):
         self._layers = cfg.TRAIN.LAYERS
         self.C = cfg.TRAIN.INIT_CHANNELS
         self.genotype = genotype
-        self.deconv_with_bias = cfg.MODEL.DECONV_WITH_BIAS
 
         self.stem0 = nn.Sequential(
             nn.Conv2d(3, self.C, 3, stride=2, padding=1, bias=False),
@@ -183,7 +182,7 @@ class Network(nn.Module):
                 reduction = True
             else:
                 reduction = False
-            cell = Cell(gt.BACKBONE, C_prev_prev, C_prev, C_curr, reduction, reduction_prev)
+            cell = Cell(gt.PoseEncoder, C_prev_prev, C_prev, C_curr, reduction, reduction_prev)
             reduction_prev = reduction
             self.cells += [cell]
             C_prev_prev, C_prev = C_prev, cell.multiplier*C_curr
@@ -219,7 +218,7 @@ class Network(nn.Module):
                 reduction = True
             else:
                 reduction = False
-            refine_cell = Cell(gt.BACKBONE, C_prev_prev, C_prev, C_curr, reduction, reduction_prev)
+            refine_cell = Cell(gt.PoseEncoder, C_prev_prev, C_prev, C_curr, reduction, reduction_prev)
             reduction_prev = reduction
             self.refine_cells += [refine_cell]
             C_prev_prev, C_prev = C_prev, cell.multiplier*C_curr
