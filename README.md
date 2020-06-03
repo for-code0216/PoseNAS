@@ -15,7 +15,7 @@ In this project, we support two different structures, PoseNAS-L18-C48 and PoseNA
 | PoseNAS-L18-C64 | 384x288    | 33.6M   | 14.8   | 0.767 | 0.915 | 0.837  | 0.725  | 0.829  | 0.812 | 0.947 | 0.873  | 0.771  | 0.871  |
 
 - Flip test is used.
-- Person detector is available at [detected_bbox](https://).
+- Person detector is available at [detected_bbox](https://drive.google.com/drive/folders/1k0xHGU4DKxUFGtMHjrPstKFXpocqbn4Z).
 - GFLOPs is for convolution and linear layers only.
 
 
@@ -26,7 +26,7 @@ In this project, we support two different structures, PoseNAS-L18-C48 and PoseNA
 | PoseNAS-L18-C64 | 384x288    | 33.6M   | 14.8   | 0.759 | 0.930 | 0.838  | 0.722  | 0.814  | 0.807 | 0.958 | 0.876  | 0.767  | 0.861  |
 
 - Flip test is used.
-- Person detector is available at [detected_bbox](https://).
+- Person detector is available at [detected_bbox](https://drive.google.com/drive/folders/1k0xHGU4DKxUFGtMHjrPstKFXpocqbn4Z).
 - GFLOPs is for convolution and linear layers only.
 
 ### Results on MPII val
