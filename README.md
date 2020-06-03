@@ -7,13 +7,6 @@ In this work, we present the Pose-native Network Architecture Search (PoseNAS) t
 In this project, we support two different structures, PoseNAS-L18-C48 and PoseNAS-L18-C64. 'L' and 'C' stand for the number of  cells in the pose encoder and the number of the initial channels of the pose encoder, respectively, you can change them in the Configuration files (config.TRAIN.LAYERS and config.TRAIN.INIT_CHANNELS). 
 
 ## Main Results
-### Results on MPII val
-| Arch            | Head | Shoulder | Elbow | Wrist | Hip  | Knee | Ankle | Mean |
-| --------------- | ---- | -------- | ----- | ----- | ---- | ---- | ----- | ---- |
-| PoseNAS-L18-C64 | 97.2 | 96.3     | 90.6  | 86.0  | 90.0 | 86.5 | 83.0  | 90.4 |
-
-- Flip test is used.
-- Input size is 256x256
 
 ### Results on COCO val2017 
 | Arch            | Input size | #Params | GFLOPs | AP    | Ap .5 | AP .75 | AP (M) | AP (L) | AR    | AR .5 | AR .75 | AR (M) | AR (L) |
@@ -36,6 +29,13 @@ In this project, we support two different structures, PoseNAS-L18-C48 and PoseNA
 - Person detector is available at [detected_bbox](https://).
 - GFLOPs is for convolution and linear layers only.
 
+### Results on MPII val
+| Arch            | Head | Shoulder | Elbow | Wrist | Hip  | Knee | Ankle | Mean |
+| --------------- | ---- | -------- | ----- | ----- | ---- | ---- | ----- | ---- |
+| PoseNAS-L18-C64 | 97.2 | 96.3     | 90.6  | 86.0  | 90.0 | 86.5 | 83.0  | 90.4 |
+
+- Flip test is used.
+- Input size is 256x256
 
 ## Code description
 - Currently we release our searched network model and the training code. 
@@ -111,7 +111,7 @@ ${POSE_ROOT}
             |-- 000003072.jpg
 ```
 
-**For COCO data**, please download from [COCO download](http://cocodataset.org/#download) . The  person detection results of COCO val2017 and test-dev2017 are available at   [detected_bbox](https://).
+**For COCO data**, please download from [COCO download](http://cocodataset.org/#download) . The  person detection results of COCO val2017 and test-dev2017 are available at   [detected_bbox](https://drive.google.com/drive/folders/1k0xHGU4DKxUFGtMHjrPstKFXpocqbn4Z).
 Download and extract them under {POSE_ROOT}/data, and make them look like this:
 
 ```
@@ -139,7 +139,7 @@ ${POSE_ROOT}
 
 #### Testing on COCO val2017 dataset
 
-##### Testing on COCO dataset  using  our [pretrained model](https:).
+##### Testing on COCO dataset  using  our [pretrained model](https://drive.google.com/drive/folders/1k0xHGU4DKxUFGtMHjrPstKFXpocqbn4Z).
 
 ```
 python test.py --cfg experiments/coco/256x192_18l_64c.yaml --test_weight "path/to/your/weight"
