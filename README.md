@@ -175,7 +175,7 @@ This repo is largely modified from [DARTS](https://github.com/quark0/darts), [Hr
   ```
 @InProceedings{AllSearchable,
   author = {Anonymous ACM MM submission: Paper ID 795},
-  title = {APose-native Neural Architecture Search for Multi-person Pose Estimation},
+  title = {Pose-native Neural Architecture Search for Multi-person Pose Estimation},
   booktitle = {Submitted to ACM International Conference on Multimedia (ACM MM)},
   year = {2020}
 }
