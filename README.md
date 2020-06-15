@@ -38,8 +38,8 @@ In this project, we support two different structures, PoseNAS-L18-C48 and PoseNA
 - Input size is 256x256
 
 ## Code description
-- Currently we release our searched network model and the training code. 
-- The search code will be released after the paper accepted. 
+- Currently we release our searched network architecture and the training code. 
+- The search code and all the pretrained models will be released after the paper accepted. 
 
 
 ## Quick start
