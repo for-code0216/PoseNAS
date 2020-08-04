@@ -173,10 +173,10 @@ This repo is largely modified from [DARTS](https://github.com/quark0/darts), [Hr
 
 ## Reference
   ```
-@InProceedings{AllSearchable,
-  author = {Anonymous ACM MM submission: Paper ID 795},
+@InProceedings{PoseNAS,
+  author = {Qian Bao, Wu Liu, Jun Hong, Lingyu Duan, Tao Mei},
   title = {Pose-native Neural Architecture Search for Multi-person Pose Estimation},
-  booktitle = {Submitted to ACM International Conference on Multimedia (ACM MM)},
+  booktitle = {ACM International Conference on Multimedia (ACM MM)},
   year = {2020}
 }
 
